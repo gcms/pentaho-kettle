@@ -26,6 +26,10 @@ import org.junit.ClassRule;
 import org.junit.Test;
 import org.pentaho.di.junit.rules.RestorePDIEngineEnvironment;
 
+import java.io.File;
+
+import static org.junit.Assert.assertEquals;
+
 public class XBaseInputContentParsingTest extends BaseXBaseParsingTest {
   @ClassRule public static RestorePDIEngineEnvironment env = new RestorePDIEngineEnvironment();
   @Test
@@ -35,5 +39,18 @@ public class XBaseInputContentParsingTest extends BaseXBaseParsingTest {
     process();
 
     check( new Object[][] { { "value11", "value12", 1.0 }, { "value21", "value22", 2.0 } } );
+  }
+
+  @Test
+  public void testDbc() throws Exception {
+    init( "test.dbc" );
+
+    process();
+
+    assertEquals("test.dbc", new File(meta.getDbfFileName()).getName());
+    assertEquals("UF_ZI", data.outputRowMeta.getFieldNames()[0]);
+    assertEquals("ANO_CMPT", data.outputRowMeta.getFieldNames()[1]);
+
+//    check( new Object[][] { { "value11", "value12", 1.0 }, { "value21", "value22", 2.0 } } );
   }
 }

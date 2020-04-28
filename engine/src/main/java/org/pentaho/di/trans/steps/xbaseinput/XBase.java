@@ -80,7 +80,7 @@ public class XBase {
   public void open() throws KettleException {
     try {
       if ( inputstream == null ) {
-        inputstream = new FileInputStream( dbfFile );
+        inputstream = XBaseVFS.getInputStream( dbfFile, new FileInputStream( dbfFile ) );
       }
       reader = new DBFReader( inputstream );
     } catch ( DBFException e ) {

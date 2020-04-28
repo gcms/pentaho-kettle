@@ -312,7 +312,7 @@ public class XBaseInputMeta extends BaseStepMeta implements StepMetaInterface {
     //
     XBase xbi = null;
     try {
-      xbi = new XBase( getLog(), KettleVFS.getInputStream( files.getFile( 0 ) ) );
+      xbi = new XBase( getLog(), XBaseVFS.getInputStream( files.getFile( 0 ) ) );
       xbi.setDbfFile( files.getFile( 0 ).getName().getURI() );
       xbi.open();
       RowMetaInterface add = xbi.getFields();

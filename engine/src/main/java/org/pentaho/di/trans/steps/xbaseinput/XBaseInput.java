@@ -203,7 +203,7 @@ public class XBaseInput extends BaseStep implements StepInterface {
     data.fileNr++;
 
     try {
-      data.xbi = new XBase( log, KettleVFS.getInputStream( data.file_dbf ) );
+      data.xbi = new XBase( log, XBaseVFS.getInputStream( data.file_dbf ) );
       data.xbi.setDbfFile( data.file_dbf.getName().getURI() );
       data.xbi.open();
       if ( !Utils.isEmpty( meta.getCharactersetName() ) ) {

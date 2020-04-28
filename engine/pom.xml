@@ -310,6 +310,11 @@
       </exclusions>
     </dependency>
     <dependency>
+      <groupId>br.gov.go.saude</groupId>
+      <artifactId>dbc-reader</artifactId>
+      <version>0.1.0</version>
+    </dependency>
+    <dependency>
       <groupId>jfree</groupId>
       <artifactId>jcommon</artifactId>
       <version>${jcommon.version}</version>
